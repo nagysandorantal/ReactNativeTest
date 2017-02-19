@@ -6,6 +6,10 @@
 
 'use strict';
 
+/**
+ * @providesModule SharedAwesomeProject
+ */
+
 import React, { Component } from 'react';
 import Button from 'react-native-button';
 
@@ -19,16 +23,16 @@ const ReactNative = require('react-native');
 const {
     Alert,
     View,
-    //Button,
+    Platform
 } = ReactNative;
 
 
-export default class AwesomeProject extends Component {
+
+export default class SharedAwesomeProject extends Component {
     constructor(props) {
         super(props);
         this.state = { counter: 0 };
-        this.state.counter = 1;
-        
+        this.state.counter = 1;       
     }
     
     onButtonPress = ( sender ) => {
@@ -39,26 +43,29 @@ export default class AwesomeProject extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native!
+          React Native shared code between iOS and Android
         </Text>
         <Text style={styles.instructions}>
-          To get started, edit index.ios.js
+          {Platform.OS} code is in index.{ Platform.OS }.js
         </Text>
         <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-            Count:  { this.state.counter }
+          { this.props.instructions }
         </Text>
-            <Button
-            onPress={ this.onButtonPress }
-            title="Learn More"
-            color="blue"
-            containerStyle={{padding:10, overflow:'hidden', borderRadius:4, backgroundColor: 'black'}}
-            backgroundColor="grey"
-            accessibilityLabel="Learn more about this purple button">
-            Learn More
-            </Button>
-            
+
+        <Text style={styles.instructions}>
+            Click count:  { this.state.counter }
+        </Text>
+
+        <Button
+        onPress={ this.onButtonPress }
+        title="Learn More"
+        color="blue"
+        containerStyle={{padding:10, overflow:'hidden', borderRadius:4, backgroundColor: 'black'}}
+        backgroundColor="grey"
+        accessibilityLabel="Learn more about this purple button">
+        Learn More
+        </Button>
+        
       </View>
     );
   }
