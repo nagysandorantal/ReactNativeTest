@@ -52,7 +52,7 @@ export default class SharedAwesomeProject extends Component {
           { this.props.instructions }
         </Text>
 
-        <Text style={styles.instructions}>
+        <Text style={styles.counter}>
             Click count:  { this.state.counter }
         </Text>
 
@@ -88,5 +88,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#333333',
     marginBottom: 5,
+  },
+  counter: {
+    fontSize: 18,
+    textAlign: 'center',
+    margin: 10,
   },
 });
